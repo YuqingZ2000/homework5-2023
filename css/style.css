@@ -1,0 +1,137 @@
+body {
+    font-family: 'Poppins', sans-serif; 
+    background-image: url('../images/concrete_seamless.png');
+    background-color: #f1f1f1;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Apply the animation to the logo element */
+@keyframes logoAnimation{
+    from{
+      width: 25px;
+      opacity: 0;
+    }
+    to{
+      width: 475px;
+      opacity: 1;
+    }
+}
+
+#logo{
+    animation: logoAnimation 5s;
+}
+
+/* Style the navigation bar */
+.nav_links{
+    display: flex;
+    flex-direction: column;
+}
+
+/* Maintain the same color for visited links */
+a:visited{
+    color: blue; 
+}
+
+/* Style the card */
+.card > header{
+    background: #288088;
+    border: 2px solid #45ADAD;
+    padding: 20px 0;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+.pricing {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+}
+
+.card{
+    border-top-left-radius: 50px; /* Curve the corners of the card */
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    width: 450px;
+}
+
+/* Style the image gallery */
+.gallery img{
+    border: 10px solid #50C7C7; 
+    margin: 10px; 
+    width: 300px;
+}
+
+.gallery{
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Media query when the screen-size is greater than 900px */
+@media screen and (min-width: 900px){
+    header{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .nav_links{
+        flex-direction: row; 
+        justify-content: space-between;
+    }
+    .pricing {
+        flex-direction: row;
+    }
+    .card{
+        flex-basis: 275px;
+    }
+    body > header{
+        position: fixed;
+        width: 100%;
+    }
+    h1{
+        padding-top: 70px;
+    }
+}
+
+/* Media query when the user prefers reduced motion */
+@media (prefers-reduced-motion: reduce){
+    #logo {
+      animation: none; 
+    }
+}
+
+/* Media query when printed in portrait mode */
+@media print and (orientation: portrait) {
+    body{
+        font-family: Arial, Helvetica;
+        background-image: none; 
+    }
+    nav{
+        width: 100%;
+    }
+    .nav_links{
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .pricing { 
+        flex-direction: row;
+        align-items: flex-end; 
+    }
+    .card{
+        border: 2px solid #45ADDD;
+        flex-basis: 325px;
+    }
+    #gallery, .gallery{
+        display: none;
+    }
+    .card ul li:nth-child(2):after{
+        content: ' \1F44D';
+    }
+  }
